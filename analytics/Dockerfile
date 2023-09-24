@@ -5,7 +5,7 @@
 # https://docs.docker.com/engine/reference/builder/
 
 ARG PYTHON_VERSION=3.11.2
-FROM python:${PYTHON_VERSION}-slim as base
+FROM public.ecr.aws/docker/library/python:3.9.18 AS base
 
 # Prevents Python from writing pyc files.
 ENV PYTHONDONTWRITEBYTECODE=1
