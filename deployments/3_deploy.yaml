@@ -43,3 +43,5 @@ spec:
             secretKeyRef:
               name: secret
               key: DB_PASSWORD 
+        - name: APP_PORT
+          value: '8000'

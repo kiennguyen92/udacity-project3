@@ -27,7 +27,7 @@ helm repo add bitnami https://charts.bitnami.com/bitnami
 
 2. Install PostgreSQL Helm Chart
 ```
-helm install postgre bitnami/postgresql --set primary.persistence.enabled false
+helm install postgre bitnami/postgresql --set primary.persistence.enabled=false
 ```
 
 By default, it will create a username `postgres`. The password can be retrieved with the following command:
@@ -77,9 +77,9 @@ kubectl port-forward --namespace default svc/postgre-postgresql 5432:5432 &
 
     ![svc-pg](./capture/svc-pg.jpg)
 
-7. Screenshot of `kubectl describe statefulset postgre-postgresql`
+7. Screenshot of `kubectl describe deployment app`
 
-    ![pg](./capture/pg.jpg)
+    ![pg](./capture/deploy.jpg)
 
 8. All Kubernetes config files used for deployment. Refer to [deployments diretory](./deployments/)
 9. Screenshot of AWS CloudWatch logs for the application
@@ -87,3 +87,7 @@ kubectl port-forward --namespace default svc/postgre-postgresql 5432:5432 &
     ![log](./capture/log.jpg)
 
 10. This `README.md` file
+
+11. Log from application
+
+    ![log-pod](./capture/log-pod.jpg)
