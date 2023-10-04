@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: app
+  template:
+    metadata:
+      labels:
+        name: app
+    spec:
+      containers:
+      - name: nginx
+        image: 652022868678.dkr.ecr.us-east-1.amazonaws.com/udacity:b8755d8
+        ports:
+        - containerPort: 8000
+        env:
+        - name: DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: configmap
+              key: DB_HOST
+        - name: DB_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: configmap
+              key: DB_PORT 
+        - name: DB_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: configmap
+              key: DB_NAME 
+        - name: DB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: secret
+              key: DB_USERNAME 
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: secret
+              key: DB_PASSWORD 

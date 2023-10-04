@@ -1,8 +1,5 @@
 FROM public.ecr.aws/docker/library/python:3.9.18
 
-ENV DB_USERNAME="admin"
-ENV DB_USERNAME="admin"
-
 COPY requirements.txt requirements.txt
 
 RUN pip install -r requirements.txt
